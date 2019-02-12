@@ -1,4 +1,12 @@
+/* Main dropdown wrapper */
+.algolia-autocomplete .ds-dropdown-menu {
+  z-index: 9999 !important; /* More than bootstrap sticky top */
+}
 
+/* Search input */
+span.algolia-autocomplete {
+  display: block !important; /* Default is inline-block but we want full width textbox */
+}
 
 body {
   line-height: 1.8;
@@ -126,7 +134,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: var(--white-color);
-  z-index: 999;
+  z-index: 45;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -428,7 +436,7 @@ pre {
   max-height: 200px;
   overflow: hidden;
   border-radius: 6px;
-  z-index: 9999;
+  z-index: 55;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
 }
 
@@ -530,7 +538,7 @@ ul li a {
   font-style: italic;
   font-size: 14px;
   font-weight: bold;
-} 
+}
 
 blockquote {
   font-size: 20px !important;
