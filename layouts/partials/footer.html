@@ -24,10 +24,22 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 {{ "<!-- algoliasearch -->" | safeHTML }}
-{{ if and (isset .Site.Params "algolia_search") (eq .Site.Params.algolia_search true) }}
-<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
-{{ partial "algolia-search" . }}
+{{ if and (isset .Site.Params "algolia_search") (eq .Site.Params.algolia_search true) }}<!-- Before the closing </body> -->
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+  docsearch({
+    // Your apiKey and indexName will be given to you once
+    // we create your config
+    appId: '{{ .Site.Params.algolia_appId }}',
+    apiKey: '{{ .Site.Params.algolia_apiKey }}',
+    indexName: '{{ .Site.Params.algolia_indexName }}',
+    // Replace inputSelector with a CSS selector
+    // matching your search input
+    inputSelector: '#search',
+    // Set debug to true if you want to inspect the dropdown
+    debug: true
+  });
+</script>
 {{ end }}
 
 {{ "<!-- Main Script -->" | safeHTML }}
