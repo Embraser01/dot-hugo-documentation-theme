@@ -17,13 +17,12 @@
 </footer>
 {{ "<!-- /footer -->" | safeHTML }}
 
-{{ "<!-- Bootstrap JS -->" | safeHTML }}
-<script src="{{ .Site.BaseURL }}plugins/bootstrap/bootstrap.min.js"></script>
-{{ "<!-- highlight -->" | safeHTML }}
-<script src="{{ .Site.BaseURL }}plugins/highlight/highlight.pack.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+        integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
+        crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-{{ "<!-- algoliasearch -->" | safeHTML }}
 {{ if and (isset .Site.Params "algolia_search") (eq .Site.Params.algolia_search true) }}<!-- Before the closing </body> -->
 <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script>
@@ -37,7 +36,7 @@
     // matching your search input
     inputSelector: '#search',
     // Set debug to true if you want to inspect the dropdown
-    debug: false
+    debug: false,
   });
 </script>
 {{ end }}
