@@ -20,7 +20,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
         integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
         crossorigin="anonymous"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 {{ if and (isset .Site.Params "algolia_search") (eq .Site.Params.algolia_search true) }}<!-- Before the closing </body> -->
@@ -43,7 +43,7 @@
 
 {{ "<!-- Main Script -->" | safeHTML }}
 {{ $script := resources.Get "js/script.js" | minify}}
-<script src="{{ $script.Permalink }}"></script>
+<script src="{{ $script.RelPermalink }}"></script>
 
 
 </body>
