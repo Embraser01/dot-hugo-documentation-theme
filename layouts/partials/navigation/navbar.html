@@ -7,6 +7,13 @@
 
     <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto">
+            {{ if not .IsHome }}
+            {{ with .Site.Params.search }}
+            <li class="nav-item">
+                <input id="search" class="form-control rounded-0 navbar-search" placeholder="{{ . }}">
+            </li>
+            {{ end }}
+            {{ end }}
             <li class="nav-item">
                 <a class="nav-link text-dark" href="{{ "/" | relLangURL }}">{{ .Site.Params.home }}</a>
             </li>

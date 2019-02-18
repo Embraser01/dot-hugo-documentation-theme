@@ -1,37 +1,11 @@
 {{ define "main" }}
 
-<!-- page title -->
-<section class="section bg-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                {{ with .Site.Params.banner.title }} <h1 class="text-white mb-4">{{ . }}</h1> {{ end }}
-                {{ with .Site.Params.banner.placeholder }}
-                    <input id="search" class="form-control" placeholder="{{ . }}">
-                {{ end }}
-            </div>
-        </div>
-    </div>
-</section>
-<!-- /page title -->
-
 <!-- details page -->
 <section class="single section bg-gray pb-0">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
-                <div class="mb-5 bg-white p-4 sticky-top">
-                    <a href="{{ .Permalink }}">
-                        <h4 class="mb-4">{{ .Title }}</h4>
-                    </a>
-                    <ul class="list-styled">
-                        {{ range .Data.Pages }}
-                        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-                        {{ end }}
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
+            {{ partial "menu/menu.html" . }}
+            <div class="col-lg-8">
                 <div class="p-5 bg-white">
                     <h2>{{ .Title }}</h2>
                     <div class="bg-gray p-4">

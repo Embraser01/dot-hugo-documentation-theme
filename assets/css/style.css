@@ -393,6 +393,9 @@ pre {
   background: transparent;
 }
 
+.navbar-search {
+    height: 63px !important;
+}
 
 .banner p{
   font-size: 20px;
@@ -547,6 +550,15 @@ blockquote {
   border-left: 2px solid var(--primary-color);
   margin: 40px 0;
   font-weight: bold;
+}
+
+.list-styled {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.list-styled > ul {
+    padding-bottom: 10px;
 }
 
 .list-styled li {

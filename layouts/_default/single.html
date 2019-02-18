@@ -15,17 +15,17 @@
 
             <nav class="pagination mt-3">
 
-                {{ if .PrevInSection }}
-                <a class="nav nav-prev" href="{{ .PrevInSection.Permalink | relLangURL }}"
-                   title="{{ .PrevInSection.Title }}">
-                    <i class="ti-arrow-left mr-2"></i>{{ .PrevInSection.Title }}
+                {{ if .NextInSection }}
+                <a class="nav nav-prev" href="{{ .NextInSection.Permalink | relLangURL }}"
+                   title="{{ .NextInSection.Title }}">
+                    <i class="ti-arrow-left mr-2"></i>{{ .NextInSection.Title }}
                 </a>
                 {{ end }}
 
-                {{ if .NextInSection }}
-                <a class="nav nav-next" href="{{ .NextInSection.Permalink | relLangURL }}"
-                   title="{{ .NextInSection.Title }}">
-                    {{ .NextInSection.Title }} <i class="ti-arrow-right ml-2"></i>
+                {{ if .PrevInSection }}
+                <a class="nav nav-next" href="{{ .PrevInSection.Permalink | relLangURL }}"
+                   title="{{ .PrevInSection.Title }}">
+                    {{ .PrevInSection.Title }} <i class="ti-arrow-right ml-2"></i>
                 </a>
                 {{ end }}
             </nav>

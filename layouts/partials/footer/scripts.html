@@ -7,7 +7,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-{{ if and (isset .Site.Params "algolia_search") (eq .Site.Params.algolia_search true) }}<!-- Before the closing </body> -->
+{{ if and (isset .Site.Params "algolia_search") (eq .Site.Params.algolia_search true) }}
 <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script>
   docsearch({
