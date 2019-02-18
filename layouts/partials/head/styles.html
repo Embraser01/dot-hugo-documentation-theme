@@ -1,0 +1,26 @@
+<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+      integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.min.css">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/hybrid.min.css">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+/>
+
+<style>
+    :root{
+        --primary-color:{{ .Site.Params.primaryColor }};
+        --secondary-color:{{ .Site.Params.secondaryColor }};
+        --text-color:{{ .Site.Params.textColor }};
+        --text-color-dark:{{ .Site.Params.textColorDark }};
+        --white-color:{{ .Site.Params.whiteColor }};
+    }
+</style>
+
+{{ "<!-- Main Stylesheet --> " | safeHTML }}
+{{ $styles := resources.Get "css/style.css" | minify}}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">

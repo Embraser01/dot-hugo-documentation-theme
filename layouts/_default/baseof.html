@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "navigation.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
-        </div>
-        {{- partial "footer.html" . -}}
-    </body>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+<head>
+    <meta charset="utf-8">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+    {{ .Hugo.Generator }}
+
+    {{ "<!-- mobile responsive meta --> " | safeHTML }}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    {{ partial "head/styles.html" . }}
+
+    <link rel="icon" href="{{ "images/favicon.png" | relURL }}" type="image/x-icon">
+</head>
+<body>
+{{ block "navbar" . }}
+<header class="shadow-bottom position-relative">
+    <div class="container">
+        {{ partial "navigation/navbar.html" . }}
+    </div>
+</header>
+{{ end }}
+
+<div id="content">{{ block "main" . }}{{ end }}</div>
+
+{{ block "footer" . }}{{ partial "footer/footer.html" . }}{{ end }}
+
+{{ partial "footer/scripts.html" . }}
+</body>
 </html>

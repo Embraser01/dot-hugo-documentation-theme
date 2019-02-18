@@ -1,0 +1,29 @@
+<div class="col-lg-4">
+    <div class="mb-5 bg-white p-4 sticky-top">
+        <nav class="sidebar-menu">
+            <ul class="list-styled">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                {{ range .Children }}
+                    <h5>{{ .Pre }}<span>{{ .Name }}</span></h5>
+
+                    {{ $relatedPage := $currentPage.Site.GetPage .URL }}
+                    {{ if $relatedPage.Pages }}
+                    <ul class="sub-menu">
+                        {{ range $relatedPage.Pages }}
+                        <li class="{{ if eq $currentPage.URL .URL }}active{{ end }}">
+                        <a href="{{ .URL }}">{{ .Name }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                    {{ else }}
+                    <li>
+                        <a href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
+                    </li>
+                    {{ end }}
+                {{ end }}
+                {{ end }}
+            </ul>
+        </nav>
+    </div>
+</div>
