@@ -5,21 +5,19 @@
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}
                 {{ range .Children }}
-                    <h5>{{ .Pre }}<span>{{ .Name }}</span></h5>
-
                     {{ $relatedPage := $currentPage.Site.GetPage .URL }}
-                    {{ if $relatedPage.Pages }}
-                    <ul class="sub-menu">
-                        {{ range $relatedPage.Pages }}
-                        <li class="{{ if eq $currentPage.URL .URL }}active{{ end }}">
-                        <a href="{{ .URL }}">{{ .Name }}</a>
-                        </li>
-                        {{ end }}
-                    </ul>
+                    {{ if and $relatedPage.Pages ($currentPage.IsDescendant $relatedPage) }}
+                        <h5>{{ .Pre }}<span>{{ .Name }}</span></h5>
+                        <ul class="sub-menu">
+                            {{ range $relatedPage.Pages }}
+                            <li class="{{ if eq $currentPage.URL .URL }}active{{ end }}">
+                            <a href="{{ .URL }}">{{ .Name }}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
                     {{ else }}
-                    <li>
-                        <a href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
-                    </li>
+                        {{ $firstPage := index ($relatedPage.Pages) 0 }}
+                        <h5><a href="{{ $firstPage.URL | default .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a></h5>
                     {{ end }}
                 {{ end }}
                 {{ end }}

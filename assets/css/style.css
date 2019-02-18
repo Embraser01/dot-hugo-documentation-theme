@@ -536,6 +536,13 @@ ul li a {
   padding: 5px 0;
 }
 
+ul h5 a {
+  color: var(--text-color-dark);
+  display: block;
+  font-weight: 600;
+  padding: 5px 0;
+}
+
 .post-meta {
   color: var(--text-color);
   font-style: italic;
@@ -550,11 +557,6 @@ blockquote {
   border-left: 2px solid var(--primary-color);
   margin: 40px 0;
   font-weight: bold;
-}
-
-.list-styled {
-    max-height: 600px;
-    overflow-y: auto;
 }
 
 .list-styled > ul {
