@@ -16,6 +16,9 @@
     appId: '{{ .Site.Params.algolia_appId }}',
     apiKey: '{{ .Site.Params.algolia_apiKey }}',
     indexName: '{{ .Site.Params.algolia_indexName }}',
+    algoliaOptions: {
+      facetFilters: ["language:{{ .Site.Language.Lang }}"]
+    },
     // Replace inputSelector with a CSS selector
     // matching your search input
     inputSelector: '#search',
