@@ -29,8 +29,12 @@
                 <div class="dropdown-menu">
                     {{ range .Children }}
                         {{ $relatedPage := $currentPage.Site.GetPage .URL }}
-                        {{ $firstPage := index ($relatedPage.Pages) 0 }}
-                        <a class="dropdown-item" href="{{ $firstPage.URL }}">{{ .Name }}</a>
+                        {{ if $relatedPage }}
+                            {{ $firstPage := index ($relatedPage.Pages) 0 }}
+                            <a class="dropdown-item" href="{{ $firstPage.URL }}">{{ .Name }}</a>
+                        {{ else }}
+                            <a class="dropdown-item" href="#">{{ .Name }}</a>
+                        {{ end }}
                     {{ end }}
                 </div>
             </li>

@@ -6,7 +6,10 @@
                 {{ range .Site.Menus.main }}
                 {{ range .Children }}
                     {{ $relatedPage := $currentPage.Site.GetPage .URL }}
-                    {{ if and $relatedPage.Pages ($currentPage.IsDescendant $relatedPage) }}
+                    {{ if not $relatedPage }}
+                        <!-- Page does not exist in this lang -->
+                        <h5>{{ .Pre }}<span>{{ .Name }}</span></h5>
+                    {{ else if and $relatedPage.Pages ($currentPage.IsDescendant $relatedPage) }}
                         <h5>{{ .Pre }}<span>{{ .Name }}</span></h5>
                         <ul class="sub-menu">
                             {{ range $relatedPage.Pages }}
