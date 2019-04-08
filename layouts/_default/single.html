@@ -8,8 +8,10 @@
 
       <div class="col-lg-8">
         <div class="p-5 bg-white">
-            <h2>{{ .Title }}</h2>
-            {{ .Content }}
+            <h1 class="title">{{ .Title }}</h1>
+            <div class="doc-content">
+              {{ .Content }}
+            </div>
 
             <p class="post-meta border-bottom pb-3 mb-0">Updated on {{ .PublishDate.Format "02 Jan 2006" }}</p>
 
